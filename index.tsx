@@ -9,6 +9,7 @@ async function main() {
   const user: typeof usersTable.$inferInsert = {
     name: 'John',
     email: 'john@example.com',
+    password: 'hashed_password', // Replace with a hashed password
   };
 
   await db.insert(usersTable).values(user);
