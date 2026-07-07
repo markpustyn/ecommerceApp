@@ -10,7 +10,7 @@ export async function POST(request: Request) {
 
     console.log("Received data:", { name, description, price, imageUrl });
 
-    const merchantId = 1;
+    const merchantId = "f667739c-b133-49e9-be5d-70137379eb7e";
 
     if(!name || !description || !price || !imageUrl) {
         return new Response("Missing required fields", { status: 400 });

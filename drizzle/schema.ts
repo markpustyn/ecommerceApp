@@ -7,26 +7,27 @@ import {
 } from "drizzle-orm/pg-core";
 
 export const usersTable = pgTable("users", {
-  id: integer().primaryKey().generatedAlwaysAsIdentity(),
+  id: uuid().primaryKey().defaultRandom(),
   name: varchar({ length: 255 }).notNull(),
   password: varchar({ length: 255 }).notNull(),
-  email: varchar({ length: 255 }).notNull().unique(),
+  email: varchar({ length: 255 }).notNull(),
+  role: varchar({ length: 50 }).notNull().default("user"),
 });
 
 export const itemsTable = pgTable("items", {
   id: uuid().primaryKey().defaultRandom(),
   name: varchar({ length: 255 }).notNull(),
   description: varchar({ length: 255 }).notNull(),
-  price: integer().notNull(), // price in cents
+  price: integer().notNull(),
   imageUrl: varchar("image_url", { length: 255 }).notNull(),
-  merchantId: integer("merchant_id")
+  merchantId: uuid("merchant_id")
     .notNull()
     .references(() => usersTable.id),
 });
 
 export const ordersTable = pgTable("orders", {
   id: uuid().primaryKey().defaultRandom(),
-  userId: integer("user_id")
+  userId: uuid("user_id")
     .notNull()
     .references(() => usersTable.id),
   itemId: uuid("item_id")

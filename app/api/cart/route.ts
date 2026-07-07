@@ -8,7 +8,7 @@ export async function POST(request: Request) {
 
     try{
         await db.insert(ordersTable).values({
-            userId, 
+            userId: id,
             itemId: id,
             quantity: 1,
             totalPrice: price,
