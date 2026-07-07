@@ -6,13 +6,12 @@ import { itemsTable } from "@/drizzle/schema";
 
 export async function POST(request: Request) {
 
-    const { name, description, price, imageUrl } = await request.json();
+    const { name, description, price, imageUrl , userId} = await request.json();
 
-    console.log("Received data:", { name, description, price, imageUrl });
 
-    const merchantId = "f667739c-b133-49e9-be5d-70137379eb7e";
 
-    if(!name || !description || !price || !imageUrl) {
+
+    if(!name || !description || !price || !imageUrl || !userId) {
         return new Response("Missing required fields", { status: 400 });
     }
 
@@ -22,7 +21,7 @@ export async function POST(request: Request) {
         description,
         price,
         imageUrl,
-        merchantId,
+        merchantId: userId,
       });
 
       return Response.json("Product created successfully", { status: 201 });

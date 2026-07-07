@@ -1,5 +1,6 @@
 import Form from './form'
 import { auth } from '@/auth';
+import { SessionProvider } from 'next-auth/react';
 import { redirect } from 'next/navigation';
 
 async function Page() {
@@ -10,7 +11,9 @@ async function Page() {
   }
   return (
     <div>
-      <Form />
+      <SessionProvider>
+        <Form />
+      </SessionProvider>
     </div>
   )
 }

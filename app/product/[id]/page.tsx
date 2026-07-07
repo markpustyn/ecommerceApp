@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import AddToCartButton from "@/app/ui/cartBtn";
 import Navbar from "@/app/ui/navbar";
+import { SessionProvider } from "next-auth/react";
 
 
 export default async function Page({
@@ -50,8 +51,9 @@ export default async function Page({
           </p>
 
           <p className="mt-6 text-gray-600">{product.description}</p>
-
-          <AddToCartButton product={product} />
+    <SessionProvider>
+      <AddToCartButton product={product} />
+    </SessionProvider>
         </div>
       </div>
     </main>

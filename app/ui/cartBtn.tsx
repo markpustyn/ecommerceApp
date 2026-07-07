@@ -1,6 +1,7 @@
-// app/product/[id]/AddToCartButton.tsx
-
 "use client";
+
+import { useSession } from "next-auth/react";
+import { toast } from "sonner";
 
 type product = {
   id: string;
@@ -11,14 +12,16 @@ type product = {
 };
 
 export default function AddToCartButton({ product }: { product: product }) {
+  const { data: session } = useSession()
   async function addToCart() {
     await fetch("/api/cart", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(product),
+      body: JSON.stringify({ ...product, userId: session?.user?.id }),
     });
+    toast.success("Item added to cart");
   }
 
   return (

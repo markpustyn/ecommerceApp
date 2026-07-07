@@ -2,10 +2,13 @@
 
 import { useRouter } from "next/navigation";
 import { FormEvent } from "react";
+import { useSession } from "next-auth/react"
 
 export default function Form() {
   const router = useRouter();
-  
+
+  const { data: session } = useSession()
+
 
   async function createProduct(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -18,6 +21,7 @@ export default function Form() {
       description: formData.get("description"),
       price: Number(formData.get("price")) * 100,
       imageUrl: formData.get("imageUrl"),
+      userId: session?.user?.id
     };
 
     try {
