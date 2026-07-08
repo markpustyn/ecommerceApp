@@ -102,6 +102,9 @@ During login, the entered password is compared against the stored hash.
 
 This protects user credentials even if the database were compromised.
 
+<img width="790" height="375" alt="Screenshot 2026-07-07 141642" src="https://github.com/user-attachments/assets/61b3de93-8131-4805-b38e-de07c30bbfcd" />
+
+
 ---
 
 ## HTTPS Protection
@@ -116,6 +119,9 @@ This protects sensitive information such as:
 
 from interception during transmission.
 
+<img width="582" height="216" alt="Screenshot 2026-07-07 142121" src="https://github.com/user-attachments/assets/1a7ad45d-366f-4236-9279-4b532b4fa90d" />
+
+
 ---
 
 ## SQL Injection Prevention
@@ -124,6 +130,9 @@ Database operations are performed through **Drizzle ORM**, which uses parameteri
 
 Parameterized queries treat user input as data instead of executable SQL, preventing SQL injection attacks.
 
+<img width="803" height="541" alt="Screenshot 2026-07-07 142523" src="https://github.com/user-attachments/assets/31bf86b1-aaf1-4c3f-b401-ae9bc8375cb8" />
+
+
 ---
 
 ## Cross Site Scripting (XSS)
@@ -131,6 +140,10 @@ Parameterized queries treat user input as data instead of executable SQL, preven
 The application uses **React**, which automatically escapes user generated content before rendering.
 
 This prevents malicious JavaScript from being executed within the application.
+
+
+<img width="847" height="726" alt="Screenshot 2026-07-07 143738" src="https://github.com/user-attachments/assets/5cfa4a06-31ff-4181-abd6-934cbcb5f3dd" />
+<img width="1041" height="853" alt="Screenshot 2026-07-07 142855" src="https://github.com/user-attachments/assets/84ac3c82-e900-4802-b8f7-ae2a03fa5f07" />
 
 ---
 
@@ -156,6 +169,9 @@ Validation includes:
 - Password confirmation
 
 This helps prevent invalid or weak user credentials from entering the system.
+
+<img width="847" height="726" alt="Screenshot 2026-07-07 143738" src="https://github.com/user-attachments/assets/03f87c8b-26ea-4046-8731-1ef276d1dae9" />
+
 
 ---
 
